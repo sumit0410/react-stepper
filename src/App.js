@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Stepper from "./components/Stepper";
+import Address from "./steps/Address";
+import CustomerInfo from "./steps/CustomerInfo";
+import Final from "./steps/Final";
+import Payment from "./steps/Payment";
 
 function App() {
+  const formSteps = [
+    {
+      name: "step 1",
+      component: () => <CustomerInfo />,
+    },
+    {
+      name: "step 2",
+      component: () => <Address />,
+    },
+    {
+      name: "step 3",
+      component: () => <Payment />,
+    },
+    {
+      name: "step 4",
+      component: () => <Final />,
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Stepper formSteps={formSteps} />
     </div>
   );
 }
