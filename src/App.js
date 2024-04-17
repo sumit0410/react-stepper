@@ -8,19 +8,19 @@ import Payment from "./steps/Payment";
 function App() {
   const formSteps = [
     {
-      name: "step 1",
+      name: "Personal Info",
       component: () => <CustomerInfo />,
     },
     {
-      name: "step 2",
+      name: "Address",
       component: () => <Address />,
     },
     {
-      name: "step 3",
+      name: "Additional Info",
       component: () => <Payment />,
     },
     {
-      name: "step 4",
+      name: "Confirmation",
       component: () => <Final />,
     },
   ];

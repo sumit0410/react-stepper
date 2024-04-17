@@ -8,6 +8,7 @@ const Stepper = ({ formSteps = [] }) => {
     marginLeft: 0,
     marginRight: 0,
   });
+  console.log(currentStep);
   const stepRef = useRef([]);
 
   useEffect(() => {
@@ -89,7 +90,25 @@ const Stepper = ({ formSteps = [] }) => {
           ></div>
         </div>
       </div>
-      <ActiveComponent />
+      {isComplete ? (
+        <div>
+          <h1
+            style={{
+              textAlign: "center",
+              fontSize: "40px",
+              fontFamily: "cursive",
+            }}
+          >
+            Thank You !
+          </h1>
+          <p style={{ textAlign: "center" }}>
+            Your details have been submitted successfully. We will contact you
+            soon!
+          </p>
+        </div>
+      ) : (
+        <ActiveComponent />
+      )}
       {!isComplete && (
         <button onClick={handleNextStep}>
           {currentStep === formSteps.length ? "Finish" : "Next"}
